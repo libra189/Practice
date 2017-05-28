@@ -1,3 +1,7 @@
+/**
+ * 単方向リスト
+ */
+
 #include "node.h"
 #include <iostream>
 #include <string>
