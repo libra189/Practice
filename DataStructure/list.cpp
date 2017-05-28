@@ -1,4 +1,8 @@
-#include <iostream>
+/**
+ * データ構造 - リスト構造
+ * ノードクラス
+*/
+
 #include <string>
 
 using namespace std;
@@ -14,12 +18,8 @@ public:
   }
 
   string toString() {
-    return name;
+    string str = "{name : " + this->name + "}";
+    return str;
   }
 };
 
-int main(int argc, char const *argv[]) {
-  Node l("ボス");
-  cout << l.toString() << endl;
-  return 0;
-}
