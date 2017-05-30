@@ -19,11 +19,7 @@ struct Node {
  * Nodeの追加
  */
 struct Node *add_node(int key, string name, struct Node* head) {
-  struct Node *p;
-  if ((p = (struct Node *)malloc(sizeof(struct Node))) == NULL) {
-    cout << "malloc error" << endl;
-    exit(-1);
-  }
+  struct Node *p = new struct Node();
 
   p->key = key;
   p->name = name;
@@ -40,7 +36,7 @@ void free_list(struct Node *p) {
   struct Node *p2;
   while (p != NULL) {
     p2 = p->next;
-    free(p);
+    delete p;
     p = p2;
   }
 }
