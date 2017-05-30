@@ -1,66 +1,56 @@
-/**
- * 単方向リスト
- */
-
-//#include "node.h"
 #include <iostream>
 #include <string>
-#include <stdlib.h>
+
+#include "node.h"
 
 using namespace std;
 
-struct Node {
-  int key;
-  string name;
-  struct Node *next;
-};
-
 /**
- * Nodeの追加
+ * リスト先頭へノードを追加
+ * @param  key  ノード番号
+ * @param  name ノード名
+ * @param  head リストの先頭ポインタ
+ * @return      リストの先頭ポインタ
  */
-struct Node *add_node(int key, string name, struct Node* head) {
-  struct Node *p = new struct Node();
-
-  p->key = key;
-  p->name = name;
-  p->next = head;
-  head = p;
-
-  return head;
+Node* appendNode(int key, string name, Node *head) {
+    Node *p = new Node(key, name);
+    p->next = head;
+    head = p;
+    return head;
 }
 
 /**
- * リストの消去
+ * リストの出力
+ * @param p 先頭ポインタ
  */
-void free_list(struct Node *p) {
-  struct Node *p2;
-  while (p != NULL) {
-    p2 = p->next;
-    delete p;
-    p = p2;
-  }
+void showList(Node *p) {
+    while (p != NULL) {
+        cout << p->toString() << endl;
+        p = p->next;
+    }
 }
 
 /**
- * リストの表示
+ * リストの削除
+ * @param p 先頭ポインタ
  */
-void show_list(struct Node *p) {
-  while (p != NULL) {
-    cout << "{" << p->key << " : " << p->name << "}" << endl;
-    p = p->next;
-  }
+void deleteList(Node *p) {
+    Node *p2;
+    while (p != NULL) {
+        p2 = p->next;
+        delete p;
+        p = p2;
+    }
 }
 
 int main(int argc, char const *argv[]) {
-  struct Node *head = NULL;
-  int key = 0;
+    Node *head = NULL;
+    head = appendNode(0, "foo", head);
+    head = appendNode(1, "bar", head);
 
-  head = add_node(key++, "hoge", head);
-  head = add_node(key++, "bar", head);
+    showList(head);
 
-  show_list(head);
+    deleteList(head);
 
-  free_list(head);
-
-  return 0;
+    return 0;
 }

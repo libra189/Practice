@@ -1,25 +1,30 @@
-/**
- * データ構造 - リスト構造
- * ノードクラス
-*/
-
 #include <string>
 
 using namespace std;
 
+/**
+ * リストを構成するNodeクラス
+ */
 class Node {
-private:
-  string name;
-  Node *next;
 public:
-  Node(string s) {
-    name = s;
-    next = NULL;
-  }
+    int key;
+    string name;
+    Node *next;
 
-  string toString() {
-    string str = "{name : " + this->name + "}";
-    return str;
-  }
+    Node(int key, string name) {
+        this->key = key;
+        this->name = name;
+        next = NULL;
+    }
+
+    ~Node() {}
+
+    /**
+     * Nodeの出力
+     * @return string
+     */
+    string toString() {
+        string s = to_string(this->key);
+        return "{key:" + s + ", name:" + this->name + "}";
+    }
 };
-
