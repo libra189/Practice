@@ -9,6 +9,7 @@ class Node {
 public:
     int key;
     string name;
+    Node *front;
     Node *next;
 
     Node(int key, string name) {
