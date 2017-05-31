@@ -116,21 +116,24 @@ Node *deleteNode(int point, Node *head) {
 
 int main(int argc, char const *argv[]) {
     Node *head = NULL;
+
+    // 新規リストの作成
     head = appendNode(0, "foo", head);
     head = appendNode(1, "bar", head);
     head = appendNode(2, "hoge", head);
     showList(head);
-
     cout << endl;
 
+    // 任意の場所にノードを挿入
     head = insertNode(2, 3, "test", head);
     showList(head);
-
     cout << endl;
 
+    // 任意の場所のノードを削除
     head = deleteNode(1, head);
     showList(head);
 
+    // リストの削除
     deleteList(head);
 
     return 0;
