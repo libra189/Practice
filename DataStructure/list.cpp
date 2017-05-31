@@ -29,7 +29,8 @@ Node *appendNode(int key, string name, Node *head) {
 
 /**
  * 任意の場所にノードを追加
- * @param  point 挿入番号
+ * リストサイズ＜pointの場合最後尾に追加
+ * @param  point 挿入場所
  * @param  key   ノード番号
  * @param  name  ノード名
  * @param  head  リストの先頭ポインタ
@@ -86,12 +87,14 @@ void deleteList(Node *p) {
 
 /**
  * 任意のノードの削除
- * @param  point [description]
- * @param  head  [description]
- * @return       [description]
+ * @param  point 削除場所
+ * @param  head  リストの先頭ポインタ
+ * @return       リストの先頭ポインタ
  */
 Node *deleteNode(int point, Node *head) {
+    int i = 0;
     Node *node;
+
     if (point == 0) {
         node = head->next;
         delete head;
