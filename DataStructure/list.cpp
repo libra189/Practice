@@ -84,6 +84,16 @@ void deleteList(Node *p) {
     }
 }
 
+/**
+ * 任意のノードの削除
+ * @param  point [description]
+ * @param  head  [description]
+ * @return       [description]
+ */
+Node *deleteNode(int point, Node *head) {
+
+}
+
 int main(int argc, char const *argv[]) {
     Node *head = NULL;
     head = appendNode(0, "foo", head);
@@ -93,7 +103,7 @@ int main(int argc, char const *argv[]) {
 
     cout << endl;
 
-    head = insertNode(5, 3, "test", head);
+    head = insertNode(2, 3, "test", head);
     showList(head);
 
     deleteList(head);
