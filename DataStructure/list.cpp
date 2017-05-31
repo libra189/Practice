@@ -1,3 +1,11 @@
+/**
+ * データ構造 - リスト構造
+ * 単方向リスト
+ *
+ * TODO
+ * 任意のノードの削除
+ */
+
 #include <iostream>
 #include <string>
 
