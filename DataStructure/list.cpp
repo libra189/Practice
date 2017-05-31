@@ -1,9 +1,6 @@
 /**
  * データ構造 - リスト構造
  * 単方向リスト
- *
- * TODO
- * 任意のノードの削除
  */
 
 #include <iostream>
@@ -93,13 +90,28 @@ void deleteList(Node *p) {
  */
 Node *deleteNode(int point, Node *head) {
     int i = 0;
-    Node *node;
+    Node *node, *p;
 
     if (point == 0) {
         node = head->next;
         delete head;
         head = node;
+        return head;
     }
+
+    node = head;
+    while(i != point-1) {
+        node = node->next;
+        i++;
+        if (node->next == NULL) {
+            return head;
+        }
+    }
+    p = node->next->next;
+    delete node->next;
+    node->next = p;
+
+    return head;
 }
 
 int main(int argc, char const *argv[]) {
@@ -112,6 +124,11 @@ int main(int argc, char const *argv[]) {
     cout << endl;
 
     head = insertNode(2, 3, "test", head);
+    showList(head);
+
+    cout << endl;
+
+    head = deleteNode(1, head);
     showList(head);
 
     deleteList(head);
