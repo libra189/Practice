@@ -91,7 +91,12 @@ void deleteList(Node *p) {
  * @return       [description]
  */
 Node *deleteNode(int point, Node *head) {
-
+    Node *node;
+    if (point == 0) {
+        node = head->next;
+        delete head;
+        head = node;
+    }
 }
 
 int main(int argc, char const *argv[]) {
