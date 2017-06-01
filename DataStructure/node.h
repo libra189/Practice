@@ -15,6 +15,7 @@ public:
     Node(int key, string name) {
         this->key = key;
         this->name = name;
+        front = NULL;
         next = NULL;
     }
 
