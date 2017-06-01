@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "node.h"
+#include "Node.h"
 
 using namespace std;
 
