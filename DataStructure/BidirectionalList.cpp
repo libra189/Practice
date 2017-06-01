@@ -7,6 +7,7 @@
 #include <string>
 
 #include "Node.h"
+#include "List.h"
 
 using namespace std;
 
@@ -18,7 +19,16 @@ using namespace std;
  * @return      リストの先頭ポインタ
  */
 Node *appendNode(int key, string name, Node *head) {
+    Node *p = new Node(key, name);
 
+    if (head != NULL) {
+        p->next = head;
+        head->front = p;
+        head = p;
+    } else {
+        head = p;
+    }
+    return head;
 }
 
 int main(int argc, char const *argv[]) {
