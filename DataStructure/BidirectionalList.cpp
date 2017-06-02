@@ -15,6 +15,17 @@ Node *head = NULL;  // リストの先頭ポインタ
 Node *teil = NULL;  // リストの末尾ポインタ
 
 /**
+ * リストを逆順に表示
+ * @param p リストの末尾ポインタ
+ */
+void reverseShowList(Node *p) {
+    while (p != NULL) {
+        cout << p->toString() << endl;
+        p = p->front;
+    }
+}
+
+/**
  * リストの先頭にノードを追加
  * @param  key  ノード値
  * @param  name ノード名
@@ -25,10 +36,11 @@ void appendNode(int key, string name) {
 
     if (head != NULL) {
         p->next = head;
-        head->front = p;
+        p->next->front = p;
         head = p;
     } else {
         head = p;
+        teil = p;
     }
 }
 
@@ -37,6 +49,9 @@ int main(int argc, char const *argv[]) {
     appendNode(1, "bar");
     appendNode(2, "hoge");
     showList(head);
+    cout << endl;
+    reverseShowList(teil);
+    cout << endl;
 
     deleteList(head);
 
