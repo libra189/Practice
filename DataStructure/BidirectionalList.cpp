@@ -11,14 +11,16 @@
 
 using namespace std;
 
+Node *head = NULL;  // リストの先頭ポインタ
+Node *teil = NULL;  // リストの末尾ポインタ
+
 /**
  * リストの先頭にノードを追加
  * @param  key  ノード値
  * @param  name ノード名
- * @param  head リストの先頭ポインタ
  * @return      リストの先頭ポインタ
  */
-Node *appendNode(int key, string name, Node *head) {
+void appendNode(int key, string name) {
     Node *p = new Node(key, name);
 
     if (head != NULL) {
@@ -28,14 +30,12 @@ Node *appendNode(int key, string name, Node *head) {
     } else {
         head = p;
     }
-    return head;
 }
 
 int main(int argc, char const *argv[]) {
-    Node *head = NULL;
-    head = appendNode(0, "foo", head);
-    head = appendNode(1, "bar", head);
-    head = appendNode(2, "hoge", head);
+    appendNode(0, "foo");
+    appendNode(1, "bar");
+    appendNode(2, "hoge");
     showList(head);
 
     deleteList(head);
