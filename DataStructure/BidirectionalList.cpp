@@ -29,7 +29,6 @@ void reverseShowList(Node *p) {
  * リストの先頭にノードを追加
  * @param  key  ノード値
  * @param  name ノード名
- * @return      リストの先頭ポインタ
  */
 void appendNode(int key, string name) {
     Node *p = new Node(key, name);
@@ -44,10 +43,42 @@ void appendNode(int key, string name) {
     }
 }
 
+/**
+ * 任意の位置にノードを挿入
+ * @param  point 挿入位置
+ * @param  key   ノード番号
+ * @param  name  ノード名
+ */
+void insertNode(int point, int key, string name) {
+    int i = 0;
+    Node *p = new Node(key, name);
+
+    if (point == 0) {
+        p->next = head;
+        p->next->front = p;
+        head = p;
+    }
+
+    Node *node = head;
+    while (i != point-1) {
+        node = node->front;
+    }
+    node->next->front = p;
+    p->next = node->next;
+    p->front = node;
+    node->next = p;
+}
+
 int main(int argc, char const *argv[]) {
     appendNode(0, "foo");
     appendNode(1, "bar");
     appendNode(2, "hoge");
+    showList(head);
+    cout << endl;
+    reverseShowList(teil);
+    cout << endl;
+
+    insertNode(1, 3, "test");
     showList(head);
     cout << endl;
     reverseShowList(teil);
