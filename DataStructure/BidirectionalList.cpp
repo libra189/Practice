@@ -87,18 +87,21 @@ void deleteNode(int point) {
 }
 
 int main(int argc, char const *argv[]) {
+    // 新規リストの作成
     appendNode(0, "foo");
     appendNode(1, "bar");
     appendNode(2, "hoge");
     showList(head);
     cout << endl;
-    reverseShowList(teil);
+    reverseShowList(teil);  // リストの逆順表示
     cout << endl;
 
-    insertNode(1, 3, "test");
+    // 2番目に挿入
+    insertNode(1, 3, "test"); 
     showList(head);
     cout << endl;
 
+    // 3番目を削除
     deleteNode(2);
     showList(head);
     cout << endl;
