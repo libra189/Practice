@@ -24,8 +24,8 @@ void reverseShowList(Node *p) {
         p = p->front;
     }
 }
-
 /**
+
  * リストの先頭にノードを追加
  * @param  key  ノード値
  * @param  name ノード名
@@ -69,6 +69,23 @@ void insertNode(int point, int key, string name) {
     node->next = p;
 }
 
+/**
+ * 任意のノードを削除
+ * @param point 削除位置
+ */
+void deleteNode(int point) {
+    int i = 0;
+    Node *p = head;
+
+    while (i != point) {
+        p = p->next;
+        i++;
+    }
+    p->front->next = p->next;
+    p->next->front = p->front;
+    delete p;
+}
+
 int main(int argc, char const *argv[]) {
     appendNode(0, "foo");
     appendNode(1, "bar");
@@ -81,7 +98,9 @@ int main(int argc, char const *argv[]) {
     insertNode(1, 3, "test");
     showList(head);
     cout << endl;
-    reverseShowList(teil);
+
+    deleteNode(2);
+    showList(head);
     cout << endl;
 
     deleteList(head);
