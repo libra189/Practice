@@ -77,7 +77,7 @@ void deleteNode(int point) {
     int i = 0;
     Node *p = head;
 
-    while (i != point) {
+    while (i != point-1) {
         p = p->next;
         i++;
     }
@@ -96,13 +96,13 @@ int main(int argc, char const *argv[]) {
     reverseShowList(teil);  // リストの逆順表示
     cout << endl;
 
-    // 2番目に挿入
-    insertNode(1, 3, "test"); 
+    // ノードの挿入
+    insertNode(1, 3, "test");
     showList(head);
     cout << endl;
 
-    // 3番目を削除
-    deleteNode(2);
+    // ノードの削除
+    deleteNode(3);
     showList(head);
     cout << endl;
 
