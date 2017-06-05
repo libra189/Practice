@@ -116,6 +116,8 @@ int main(int argc, char const *argv[]) {
     deleteNode(3);
     showList(head);
     cout << endl;
+    reverseShowList(teil);  // リストの逆順表示
+    cout << endl;
 
     deleteList(head);
 
