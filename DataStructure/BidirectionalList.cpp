@@ -81,9 +81,20 @@ void deleteNode(int point) {
         p = p->next;
         i++;
     }
-    p->front->next = p->next;
-    p->next->front = p->front;
-    delete p;
+
+    if (p->next == NULL) {
+        teil = p->front;
+        p->front->next = p->next;
+        delete p;
+    } else if (p->front == NULL) {
+        head = p->next;
+        p->next->front = p->front;
+        delete p;
+    } else  {
+        p->front->next = p->next;
+        p->next->front = p->front;
+        delete p;
+    }
 }
 
 int main(int argc, char const *argv[]) {
