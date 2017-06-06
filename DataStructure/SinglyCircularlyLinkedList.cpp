@@ -9,7 +9,14 @@
 #include "Node.h"
 #include "List.h"
 
-int main(int argc, char const *argv[]) {
+Node *head;
+Node *tail;
+
+void insertNode(int key, string name) {
     
+}
+
+int main(int argc, char const *argv[]) {
+
     return 0;
 }
