@@ -13,9 +13,12 @@ Node *tail = NULL;
 
 void showList() {
     Node *p = head;
-    while (p != tail) {
+    while (true) {
         cout << p->toString() << endl;
         p = p->next;
+        if (p == head) {
+            break;
+        }
     }
 }
 
@@ -34,6 +37,7 @@ void appendNode(int key, string name) {
     } else {
         head = p;
         tail = p;
+        p->next = p;
     }
 }
 
