@@ -13,13 +13,10 @@ Node *tail = NULL;
 
 void showList() {
     Node *p = head;
-    while (true) {
+    do {
         cout << p->toString() << endl;
         p = p->next;
-        if (p == head) {
-            break;
-        }
-    }
+    } while(p != head);
 }
 
 /**
