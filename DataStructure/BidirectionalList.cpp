@@ -25,7 +25,6 @@ void reverseShowList(Node *p) {
     }
 }
 /**
-
  * リストの先頭にノードを追加
  * @param  key  ノード値
  * @param  name ノード名

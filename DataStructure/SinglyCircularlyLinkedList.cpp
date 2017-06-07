@@ -9,11 +9,25 @@
 #include "Node.h"
 #include "List.h"
 
-Node *head;
-Node *tail;
+Node *head = NULL;
+Node *tail = NULL;
 
-void insertNode(int key, string name) {
-    
+/**
+ * リストの先頭にノードを追加
+ * @param  key  ノード値
+ * @param  name ノード名
+ */
+void appendNode(int key, string name) {
+    Node *p = new Node(key, name);
+
+    if (head != NULL) {
+        p->next = head;
+        head = p;
+        tail->next = p;
+    } else {
+        head = p;
+        teil = p;
+    }
 }
 
 int main(int argc, char const *argv[]) {
