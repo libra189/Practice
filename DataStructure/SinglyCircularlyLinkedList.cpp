@@ -38,6 +38,24 @@ void appendNode(int key, string name) {
     }
 }
 
+/**
+ * 任意の位置にノードを挿入
+ * @param  point 挿入位置
+ * @param  key   ノード番号
+ * @param  name  ノード名
+ */
+void insertNode(int point, int key, string name) {
+
+}
+
+/**
+ * 任意のノードを削除
+ * @param point 削除位置
+ */
+void deleteNode(int point) {
+    
+}
+
 int main(int argc, char const *argv[]) {
     // 新規リストの作成
     appendNode(0, "foo");
