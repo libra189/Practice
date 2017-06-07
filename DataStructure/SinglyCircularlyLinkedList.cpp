@@ -7,10 +7,17 @@
 #include <string>
 
 #include "Node.h"
-#include "List.h"
 
 Node *head = NULL;
 Node *tail = NULL;
+
+void showList() {
+    Node *p = head;
+    while (p != tail) {
+        cout << p->toString() << endl;
+        p = p->next;
+    }
+}
 
 /**
  * リストの先頭にノードを追加
@@ -26,11 +33,17 @@ void appendNode(int key, string name) {
         tail->next = p;
     } else {
         head = p;
-        teil = p;
+        tail = p;
     }
 }
 
 int main(int argc, char const *argv[]) {
+    // 新規リストの作成
+    appendNode(0, "foo");
+    appendNode(1, "bar");
+    appendNode(2, "hoge");
+    showList();
+    cout << endl;
 
     return 0;
 }
