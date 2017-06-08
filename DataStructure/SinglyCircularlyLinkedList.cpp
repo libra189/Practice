@@ -11,6 +11,9 @@
 Node *head = NULL;
 Node *tail = NULL;
 
+/**
+ * リストを表示
+ */
 void showList() {
     Node *p = head;
     do {
@@ -19,6 +22,9 @@ void showList() {
     } while(p != head);
 }
 
+/**
+ * リストを削除
+ */
 void deleteList() {
     Node *p = head;
     Node *p2;
@@ -131,16 +137,19 @@ int main(int argc, char const *argv[]) {
     showList();
     cout << endl;
 
+    // ノードの追加
     insertNode(1, 3, "test1");
     insertNode(4, 4, "test2");
     showList();
     cout << endl;
 
+    // ノードの削除
     deleteNode(4);
     deleteNode(2);
     showList();
     cout << endl;
 
+    // リストの削除
     deleteList();
 
     return 0;
