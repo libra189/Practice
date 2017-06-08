@@ -45,7 +45,37 @@ void appendNode(int key, string name) {
  * @param  name  ノード名
  */
 void insertNode(int point, int key, string name) {
+    Node *node = new Node(key, name);
+    Node *p = head;
+    int i = 0;
+    bool flg = false;
 
+    if (point == 0) {
+        node->next = head;
+        head = node;
+        tail->next = node;
+    }
+
+    while (true) {
+        if (p == tail) {
+            flg = true;
+            break;
+        }
+        if (i == point-1) {
+            break;
+        }
+        p = p->next;
+        i++;
+    }
+
+    if (flg) {
+        node->next = p->next;
+        p->next = node;
+        tail = node;
+    } else {
+        node->next = p->next;
+        p->next = node;
+    }
 }
 
 /**
@@ -53,7 +83,7 @@ void insertNode(int point, int key, string name) {
  * @param point 削除位置
  */
 void deleteNode(int point) {
-    
+
 }
 
 int main(int argc, char const *argv[]) {
@@ -61,6 +91,11 @@ int main(int argc, char const *argv[]) {
     appendNode(0, "foo");
     appendNode(1, "bar");
     appendNode(2, "hoge");
+    showList();
+    cout << endl;
+
+    insertNode(1, 3, "test1");
+    insertNode(4, 3, "test2");
     showList();
     cout << endl;
 
