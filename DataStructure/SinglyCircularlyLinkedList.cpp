@@ -83,7 +83,34 @@ void insertNode(int point, int key, string name) {
  * @param point 削除位置
  */
 void deleteNode(int point) {
+    if (point == 0) {
+        tail->next = head->next;
+        head = head->next;
+        delete node;
+    }
 
+    int i = 0;
+    Node *node = head;
+    bool flg = false;
+    while (true) {
+        if (i == point-1) {
+            break;
+        }
+
+        if (node->next == tail) {
+            flg = true;
+            break;
+        }
+        node = node->next;
+        i++;
+    }
+
+    Node *p = node->next;
+    if (flg) {
+        tail = node;
+    }
+    node->next = p->next;
+    delete p;
 }
 
 int main(int argc, char const *argv[]) {
@@ -96,6 +123,11 @@ int main(int argc, char const *argv[]) {
 
     insertNode(1, 3, "test1");
     insertNode(4, 3, "test2");
+    showList();
+    cout << endl;
+
+    deleteNode(4);
+    deleteNode(2);
     showList();
     cout << endl;
 
