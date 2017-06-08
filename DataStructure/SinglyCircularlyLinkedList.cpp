@@ -19,6 +19,16 @@ void showList() {
     } while(p != head);
 }
 
+void deleteList() {
+    Node *p = head;
+    Node *p2;
+    do {
+        p2 = p->next;
+        delete p;
+        p = p2;
+    } while (p != tail);
+}
+
 /**
  * リストの先頭にノードを追加
  * @param  key  ノード値
@@ -83,6 +93,7 @@ void insertNode(int point, int key, string name) {
  * @param point 削除位置
  */
 void deleteNode(int point) {
+    Node *node = head;
     if (point == 0) {
         tail->next = head->next;
         head = head->next;
@@ -90,7 +101,6 @@ void deleteNode(int point) {
     }
 
     int i = 0;
-    Node *node = head;
     bool flg = false;
     while (true) {
         if (i == point-1) {
@@ -122,7 +132,7 @@ int main(int argc, char const *argv[]) {
     cout << endl;
 
     insertNode(1, 3, "test1");
-    insertNode(4, 3, "test2");
+    insertNode(4, 4, "test2");
     showList();
     cout << endl;
 
@@ -130,6 +140,8 @@ int main(int argc, char const *argv[]) {
     deleteNode(2);
     showList();
     cout << endl;
+
+    deleteList();
 
     return 0;
 }
