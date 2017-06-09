@@ -1,7 +1,7 @@
 /**
  * リストを表示
  */
-void showList() {
+void showList(Node *head) {
     Node *p = head;
     do {
         cout << p->toString() << endl;
@@ -12,7 +12,7 @@ void showList() {
 /**
  * リストを削除
  */
-void deleteList() {
+void deleteList(Node *head, Node *tail) {
     Node *p = head;
     Node *p2;
     do {
