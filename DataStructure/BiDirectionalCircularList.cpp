@@ -27,5 +27,12 @@ void insertNode(int key, string name) {
 }
 
 int main(int argc, char const *argv[]) {
+    // 新規ノードの追加
+    insertNode(0, "foo");
+    insertNode(1, "bar");
+    insertNode(2, "hoge");
+    showList(head);
+    cout << endl;
+
     return 0;
 }
