@@ -12,6 +12,11 @@
 Node *head = NULL;
 Node *tail = NULL;
 
+/**
+ * リストの先頭にノードを追加
+ * @param key  ノード番号
+ * @param name ノード名
+ */
 void insertNode(int key, string name) {
     Node *node = new Node(key, name);
 
@@ -26,6 +31,8 @@ void insertNode(int key, string name) {
     }
 }
 
+
+
 int main(int argc, char const *argv[]) {
     // 新規ノードの追加
     insertNode(0, "foo");
@@ -33,6 +40,9 @@ int main(int argc, char const *argv[]) {
     insertNode(2, "hoge");
     showList(head);
     cout << endl;
+
+    // リストの削除
+    deleteList();
 
     return 0;
 }
