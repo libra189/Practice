@@ -31,7 +31,15 @@ void insertNode(int key, string name) {
     }
 }
 
+/**
+ * 任意の位置にノードを追加
+ * @param point 挿入位置
+ * @param key   ノード番号
+ * @param name  ノード名
+ */
+void appendNode(int point, int key, string name) {
 
+}
 
 int main(int argc, char const *argv[]) {
     // 新規ノードの追加
