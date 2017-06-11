@@ -66,6 +66,13 @@ void appendNode(int point, int key, string name) {
     node->next = p->next;
     p->next = node;
     p->next->front = node;
+}
+
+/**
+ * 任意の位置のノードを削除
+ * @param point 削除位置
+ */
+void deleteNode(int point) {
 
 }
 
