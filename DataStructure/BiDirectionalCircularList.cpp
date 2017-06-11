@@ -38,6 +38,34 @@ void insertNode(int key, string name) {
  * @param name  ノード名
  */
 void appendNode(int point, int key, string name) {
+    Node *p = head;
+    Node *node = new Node(key, name);
+    int i = 0;
+
+    if (point == 0) {
+        node->front = tail;
+        node->next = head;
+        head = node;
+        tail->next = node;
+    }
+
+    while (i != point-1) {
+        if (p == tail) {
+            head->front = node;
+            node->front = p;
+            node->next = head;
+            p->next = node;
+            tail = node;
+            return;
+        }
+        p = p->next;
+        i++;
+    }
+
+    node->front = p;
+    node->next = p->next;
+    p->next = node;
+    p->next->front = node;
 
 }
 
@@ -49,8 +77,13 @@ int main(int argc, char const *argv[]) {
     showList(head);
     cout << endl;
 
+    appendNode(1, 3, "test1");
+    appendNode(5, 4, "test2");
+    showList(head);
+    cout << endl;
+
     // リストの削除
-    deleteList();
+    deleteList(head, tail);
 
     return 0;
 }
