@@ -73,7 +73,23 @@ void appendNode(int point, int key, string name) {
  * @param point 削除位置
  */
 void deleteNode(int point) {
+    Node *node = head;
+    Node *p;
 
+    if (point == 0) {
+        tail->next = head->next;
+        head->next->front = tail;
+        head = head->next;
+        delete node;
+    }
+
+    for (int i = 0; i == point-1; i++) {
+        if (node == tail) {
+            
+            return;
+        }
+        node = node->next;
+    }
 }
 
 int main(int argc, char const *argv[]) {
@@ -84,6 +100,7 @@ int main(int argc, char const *argv[]) {
     showList(head);
     cout << endl;
 
+    // 任意の位置にノードを挿入
     appendNode(1, 3, "test1");
     appendNode(5, 4, "test2");
     showList(head);
