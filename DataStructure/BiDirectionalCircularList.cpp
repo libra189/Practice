@@ -13,6 +13,17 @@ Node *head = NULL;
 Node *tail = NULL;
 
 /**
+ * 【デバッグ用】ノードのポインタ表示
+ */
+void listOpen() {
+    Node *node = head;
+    do {
+        cout << node->front << " " << node << " " << node->next << endl;
+        node = node->next;
+    } while(node != head);
+}
+
+/**
  * リストの先頭にノードを追加
  * @param key  ノード番号
  * @param name ノード名
@@ -26,6 +37,7 @@ void insertNode(int key, string name) {
     } else {
         head->front = node;
         node->next = head;
+        node->front = tail;
         head = node;
         tail->next = node;
     }
@@ -93,10 +105,12 @@ void deleteNode(int point) {
         node = node->next;
         i++;
     }
-    cout << node->toString() << endl << endl;
+
+    listOpen();
+    cout << node << endl;
     node->front->next = node->next;
     node->next->front = node->front;
-    delete node;
+    // delete node;
 }
 
 int main(int argc, char const *argv[]) {
