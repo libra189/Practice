@@ -1,4 +1,12 @@
+#include <string>
+
+using namespace std;
+
+/**
+ * 木構造を構成するノードクラス
+ */
 class Node {
+public:
     int key;
     string name;
     Node *right;
@@ -16,5 +24,19 @@ class Node {
     string toString() {
         string k = to_string(this->key);
         return "{key:" + k + ", name:" + this->name + "}";
+    }
+};
+
+/**
+ * 幅優先探索による走査
+ * @param node 部分木の根ノード
+ */
+void showTree(Node *node) {
+    cout << node->toString() << endl;
+    if (node->left != NULL) {
+        showTree(node->left);
+    }
+    if (node->right != NULL) {
+        showTree(node->right);
     }
 }
