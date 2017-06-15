@@ -74,10 +74,10 @@ void appendNode(int point, int key, string name) {
         i++;
     }
 
-    node->front = p;
-    node->next = p->next;
-    p->next = node;
     p->next->front = node;
+    node->next = p->next;
+    node->front = p;
+    p->next = node;
 }
 
 /**
@@ -106,11 +106,9 @@ void deleteNode(int point) {
         i++;
     }
 
-    listOpen();
-    cout << node << endl;
     node->front->next = node->next;
     node->next->front = node->front;
-    // delete node;
+    delete node;
 }
 
 int main(int argc, char const *argv[]) {
