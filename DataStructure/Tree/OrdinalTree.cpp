@@ -43,6 +43,11 @@ void destroyTree(Node *root) {
     delete root;
 }
 
+/**
+ * 最小値走査メソッド
+ * @param  node ノード
+ * @return      最小値
+ */
 int searchMinTree(Node *node) {
     while (node->left != NULL) {
         node = node->left;
@@ -50,11 +55,29 @@ int searchMinTree(Node *node) {
     return node->key;
 }
 
+/**
+ * 最大値走査メソッド
+ * @param  node ノード
+ * @return      最大値
+ */
 int searchMaxTree(Node *node) {
     while (node->right != NULL) {
         node = node->right;
     }
     return node->key;
+}
+
+bool isMatchNode(int key, Node *node) {
+    while (node != NULL) {
+        if (node->key == key) {
+            return true;
+        } else if (key < node->key) {
+            node = node->left;
+        } else {
+            node = node->right;
+        }
+    }
+    return false;
 }
 
 int main(int argc, char const *argv[]) {
@@ -67,9 +90,17 @@ int main(int argc, char const *argv[]) {
     root = insertNode(2, "hoge", root);
     root = insertNode(10, "test", root);
     showTree(root);
+    cout << endl;
 
     cout << "最小値 : " << searchMinTree(root) << endl;
-    cout << "最大値 : " << searchMaxTree(root) << endl;
+    cout << "最大値 : " << searchMaxTree(root) << "\n\n";
+
+    if (isMatchNode(3, root)) {
+        cout << "3 is Match" << endl;
+    } else {
+        cout << "3 is Not Match" << endl;
+    }
+    cout << endl;
 
     destroyTree(root);
 
