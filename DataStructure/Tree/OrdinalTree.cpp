@@ -43,6 +43,20 @@ void destroyTree(Node *root) {
     delete root;
 }
 
+int searchMinTree(Node *node) {
+    while (node->left != NULL) {
+        node = node->left;
+    }
+    return node->key;
+}
+
+int searchMaxTree(Node *node) {
+    while (node->right != NULL) {
+        node = node->right;
+    }
+    return node->key;
+}
+
 int main(int argc, char const *argv[]) {
     // 根ノード
     static Node *root = NULL;
@@ -53,6 +67,9 @@ int main(int argc, char const *argv[]) {
     root = insertNode(2, "hoge", root);
     root = insertNode(10, "test", root);
     showTree(root);
+
+    cout << "最小値 : " << searchMinTree(root) << endl;
+    cout << "最大値 : " << searchMaxTree(root) << endl;
 
     destroyTree(root);
 
