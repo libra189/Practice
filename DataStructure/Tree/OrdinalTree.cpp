@@ -67,6 +67,12 @@ int searchMaxTree(Node *node) {
     return node->key;
 }
 
+/**
+ * 指定値の探査メソッド
+ * @param  key  指定値
+ * @param  node 根ノード
+ * @return      boolean
+ */
 bool isMatchNode(int key, Node *node) {
     while (node != NULL) {
         if (node->key == key) {
@@ -93,14 +99,11 @@ int main(int argc, char const *argv[]) {
     cout << endl;
 
     cout << "最小値 : " << searchMinTree(root) << endl;
-    cout << "最大値 : " << searchMaxTree(root) << "\n\n";
+    cout << "最大値 : " << searchMaxTree(root) << endl << endl;
 
-    if (isMatchNode(3, root)) {
-        cout << "3 is Match" << endl;
-    } else {
-        cout << "3 is Not Match" << endl;
-    }
-    cout << endl;
+    root = insertNode(30, "age", root);
+    showTree(root);
+    cout << "最大値 : " << searchMaxTree(root) << endl << endl;
 
     destroyTree(root);
 
