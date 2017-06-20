@@ -170,6 +170,31 @@ bool isMatchNode(int key, Node *node) {
     return false;
 }
 
+/**
+ * 木の深さの走査
+ * @param  root 根ノード
+ * @return      木の深さ
+ */
+int searchDepth(Node *node) {
+    if (node->left == NULL && node->right == NULL) {
+        return 0;
+    }
+
+    int left = 0, right = 0;
+    if (node->left != NULL) {
+        left = searchDepth(node->left);
+    }
+    if (node->right != NULL) {
+        right = searchDepth(node->right);
+    }
+
+    if (left > right) {
+        return ++left;
+    } else {
+        return ++right;
+    }
+}
+
 int main(int argc, char const *argv[]) {
     // 根ノード
     static Node *root = NULL;
@@ -180,13 +205,16 @@ int main(int argc, char const *argv[]) {
     root = insertNode(2, "hoge", root);
     root = insertNode(10, "test", root);
     showTree(root);
+    cout << "depth : " << searchDepth(root) << endl;
     cout << endl;
 
     cout << "最小値 : " << searchMinTree(root) << endl;
     cout << "最大値 : " << searchMaxTree(root) << endl << endl;
 
     root = insertNode(30, "age", root);
+    root = insertNode(3, "sage", root);
     showTree(root);
+    cout << "depth : " << searchDepth(root) << endl;
     cout << "最大値 : " << searchMaxTree(root) << endl << endl;
 
     deleteKeyNode(root, 10);
