@@ -28,7 +28,7 @@ public:
 };
 
 /**
- * 幅優先探索による走査
+ * 深さ優先・行きがけ順探索による走査
  * @param node 部分木の根ノード
  */
 void showTree(Node *node) {
