@@ -6,6 +6,20 @@
 using namespace std;
 
 /**
+ * 深さ優先・行きがけ順探索による走査
+ * @param node 部分木の根ノード
+ */
+void showTree(Node *node) {
+    cout << node->toString() << endl;
+    if (node->left != NULL) {
+        showTree(node->left);
+    }
+    if (node->right != NULL) {
+        showTree(node->right);
+    }
+}
+
+/**
  * ノード挿入
  * @param  **node 現在のノード
  * @param  key  キー
