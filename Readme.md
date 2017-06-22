@@ -11,6 +11,9 @@
 [wikipedia:木構造](https://ja.wikipedia.org/wiki/%E6%9C%A8%E6%A7%8B%E9%80%A0_(%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0)
 + 順序木
 
+### アルゴリズム
++ 幅優先探索
+
 ## TODO
 ### アルゴリズム
 + 再帰的
