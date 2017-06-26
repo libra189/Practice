@@ -32,3 +32,14 @@ void showArray(int *array, int len) {
     }
     cout << endl;
 }
+
+/**
+ * 値の交換
+ * @param a 交換対象Aのポインタ
+ * @param b 交換対象Bのポインタ
+ */
+void swap(int *a, int *b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
