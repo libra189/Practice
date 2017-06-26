@@ -3,13 +3,17 @@
 
 using namespace std;
 
+/**
+ * バブルソート
+ * @param  array ソート対象配列
+ * @param  len   配列の長さ
+ * @return       ソート済み配列
+ */
 int *bubleSort(int *array, int len) {
     for (int i = 0;i < len-1;i++) {
-        for (int j = 1;j < len - i + 1;j++) {
+        for (int j = len-1;j > i;j--) {
             if (array[j] < array[j-1]) {
-                int tmp = array[j];
-                array[j] = array[j-1];
-                array[j-1] = tmp;
+                swap(&array[j], &array[j-1]);
             }
         }
     }
