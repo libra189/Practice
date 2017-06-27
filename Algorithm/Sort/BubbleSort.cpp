@@ -10,10 +10,10 @@ using namespace std;
  * @return       ソート済み配列
  */
 int *bubleSort(int *array, int len) {
-    for (int i = 0;i < len-1;i++) {
-        for (int j = len-1;j > i;j--) {
-            if (array[j] < array[j-1]) {
-                swap(&array[j], &array[j-1]);
+    for (int i = 0; i < len - 1; i++) {
+        for (int j = len - 1; j > i; j--) {
+            if (array[j] < array[j - 1]) {
+                swap(&array[j], &array[j - 1]);
             }
         }
     }

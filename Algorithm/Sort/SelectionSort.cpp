@@ -12,7 +12,7 @@ using namespace std;
 int *selectionSort(int *array, const int len) {
     for (int i = 0; i < len; i++) {
         int min = i;
-        for (int j = i+1; j < len; j++) {
+        for (int j = i + 1; j < len; j++) {
             if (array[j] < array[min]) {
                 min = j;
             }

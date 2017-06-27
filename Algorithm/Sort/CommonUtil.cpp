@@ -27,7 +27,7 @@ int *randomizer(const int num) {
  * @param array 表示したい配列
  */
 void showArray(int *array, int len) {
-    for (int i = 0;i < len;i++) {
+    for (int i = 0; i < len; i++) {
         cout << array[i] << " ";
     }
     cout << endl;
