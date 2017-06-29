@@ -7,6 +7,11 @@ using namespace std;
 #define RIGHT_CHILD(i) (((i) + 1) * 2)
 #define PARENT(i) (((i) + 1) / 2 - 1)
 
+/**
+ * ヒープへの登録
+ * @param array 未整列配列
+ * @param n     ヒープ登録用添え字
+ */
 void upheap(int *array, int n) {
     while (n > 0) {
         int m = PARENT(n);
@@ -21,6 +26,11 @@ void upheap(int *array, int n) {
     }
 }
 
+/**
+ * 配列への登録
+ * @param array ヒープ済み配列
+ * @param n     配列登録用添え字
+ */
 void downheap(int *array, int n) {
     int m = 0;
     int tmp = 0;
