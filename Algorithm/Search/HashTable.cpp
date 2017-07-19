@@ -9,7 +9,7 @@ using namespace std;
 
 const unsigned int hashElementNum = 51;
 
-const unsigned int sampleHashfuc(const string& str) {
+const unsigned int sampleHashFuc(const string& str) {
     unsigned int h = 0;
     string::const_iterator i = str.begin();
 
@@ -28,7 +28,7 @@ public:
     typedef pair<const TKey, TValue> Pair;
 protected:
     // クラス内用の型宣言
-    typedef list<Pair> list;
+    typedef list<Pair> List;
     typedef typename List::iterator Iterator;
     typedef vector<List> Vector;
 
@@ -101,6 +101,7 @@ protected:
 
     // 新規にキーと値のセットを追加
     Iterator addPair(const TKey& key) {
+        const unsigned int hval = m_func(key);
         m_vec[hval].push_front(Pair(key, TValue()));
         return m_vec[hval].begin();
     };
@@ -121,6 +122,5 @@ int main(int argc, char const *argv[]) {
     h.remove("bcd");
     cout << h["abc"] << ":" << h["bcd"] << ":" << h["kkk"] << endl;
 
-    system("PAUSE")
     return EXIT_SUCCESS;
 }
