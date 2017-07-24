@@ -28,7 +28,7 @@
 + フィボナッチ数列
 
 ### 探索
-[wikipedia:探索]()
+[wikipedia:探索](https://ja.wikipedia.org/wiki/%E6%8E%A2%E7%B4%A2)
 + 線形探索
 + 二分探索
 + ハッシュテーブル
