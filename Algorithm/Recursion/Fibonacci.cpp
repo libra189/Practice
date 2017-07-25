@@ -2,6 +2,11 @@
 
 using namespace std;
 
+/**
+ * n番目のフィボナッチ数列
+ * @param  n n番目
+ * @return   n番目のフィボナッチ数列
+ */
 int Fibonacci(const int n) {
     switch (n) {
     case 0:
