@@ -44,6 +44,13 @@ int dequeue() {
 }
 
 int main(int argc, char const *argv[]) {
-    cout << "Hello World." << endl;
+    initialize();
+
+    enqueue(10);
+    enqueue(5);
+    enqueue(20);
+
+    cout << dequeue() << endl;
+    cout << dequeue() << endl;
     return 0;
 }
